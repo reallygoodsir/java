@@ -14,6 +14,7 @@ public class Notepad {
         frame.add(scrollPane);
 
         JMenuBar menuBar = new JMenuBar();
+
         JMenu file = new JMenu(menuFile);
         menuBar.add(file);
         JMenu edit = new JMenu(menuEdit);
@@ -27,7 +28,11 @@ public class Notepad {
         frame.setJMenuBar(menuBar);
 
         JMenuItem fileNew = new JMenuItem("New");
+        FileNewActionListener fileNewActionListener = new FileNewActionListener();
+        fileNew.addActionListener(fileNewActionListener);
         JMenuItem fileOpen = new JMenuItem("Open");
+        FileOpenActionListener fileOpenActionListener = new FileOpenActionListener();
+        fileOpen.addActionListener(fileOpenActionListener);
         JMenuItem fileSave = new JMenuItem("Save");
         JMenuItem fileSaveAs = new JMenuItem("Save As");
         JMenuItem filePrint = new JMenuItem("Print");
@@ -38,6 +43,7 @@ public class Notepad {
         file.add(fileSaveAs);
         file.add(filePrint);
         file.add(fileExit);
+
 
         JMenuItem editCut = new JMenuItem("Cut");
         JMenuItem editCopy = new JMenuItem("Copy");
@@ -79,7 +85,7 @@ public class Notepad {
         help.add(helpAbout);
 
         frame.setSize(800, 500);
-        frame.setLocation(300, 200);
+        frame.setLocation(550, 250);
         frame.setVisible(true);
     }
 }
