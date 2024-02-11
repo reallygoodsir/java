@@ -1,16 +1,40 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class FileOpenActionListener implements ActionListener {
+    private final JTextArea textArea;
+
+    public FileOpenActionListener(JTextArea ta) {
+        this.textArea = ta;
+    }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        JDialog openDialogue = new JDialog();
-        openDialogue.setSize(400, 225);
-        openDialogue.setLocation(700, 350);
-        openDialogue.setTitle("Open Dialogue");
-        openDialogue.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-        openDialogue.setVisible(true);
+        JFileChooser fileChooser = new JFileChooser();
+        int userPressedButton = fileChooser.showOpenDialog(null);
+
+        if (userPressedButton == 0) {
+            File selectedFile = fileChooser.getSelectedFile();
+            try {
+                char[] fileData = new char[1000];
+                FileReader fileReader = new FileReader(selectedFile);
+                fileReader.read(fileData);
+                fileReader.close();
+
+                StringBuilder txt = new StringBuilder();
+                for (char letter : fileData) {
+                    txt.append(letter);
+                }
+
+                textArea.setText(txt.toString());
+                textArea.setVisible(true);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

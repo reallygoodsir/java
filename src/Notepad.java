@@ -31,7 +31,7 @@ public class Notepad {
         FileNewActionListener fileNewActionListener = new FileNewActionListener(textArea);
         fileNew.addActionListener(fileNewActionListener);
         JMenuItem fileOpen = new JMenuItem("Open");
-        FileOpenActionListener fileOpenActionListener = new FileOpenActionListener();
+        FileOpenActionListener fileOpenActionListener = new FileOpenActionListener(textArea);
         fileOpen.addActionListener(fileOpenActionListener);
         JMenuItem fileSave = new JMenuItem("Save");
         JMenuItem fileSaveAs = new JMenuItem("Save As");
