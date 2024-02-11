@@ -3,14 +3,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FileNewActionListener implements ActionListener {
+    private final JTextArea textArea;
+
+    public FileNewActionListener(JTextArea ta) {
+        this.textArea = ta;
+    }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        JDialog newDialogue = new JDialog();
-        newDialogue.setTitle("New Dialogue");
-        newDialogue.setLocation(700, 350);
-        newDialogue.setSize(400, 225);
-        newDialogue.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-        newDialogue.setVisible(true);
+        textArea.setVisible(true);
     }
 }

@@ -28,7 +28,7 @@ public class Notepad {
         frame.setJMenuBar(menuBar);
 
         JMenuItem fileNew = new JMenuItem("New");
-        FileNewActionListener fileNewActionListener = new FileNewActionListener();
+        FileNewActionListener fileNewActionListener = new FileNewActionListener(textArea);
         fileNew.addActionListener(fileNewActionListener);
         JMenuItem fileOpen = new JMenuItem("Open");
         FileOpenActionListener fileOpenActionListener = new FileOpenActionListener();
@@ -88,6 +88,7 @@ public class Notepad {
 
         frame.setSize(800, 500);
         frame.setLocation(550, 250);
+        textArea.setVisible(false);
         frame.setVisible(true);
     }
 }
