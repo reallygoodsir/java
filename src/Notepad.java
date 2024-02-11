@@ -10,9 +10,9 @@ public class Notepad {
     public void start() {
         JFrame frame = new JFrame();
         JTextArea textArea = new JTextArea();
+        frame.setTitle("Notepad");
         JScrollPane scrollPane = new JScrollPane(textArea);
         frame.add(scrollPane);
-
         JMenuBar menuBar = new JMenuBar();
 
         JMenu file = new JMenu(menuFile);
@@ -35,6 +35,9 @@ public class Notepad {
         fileOpen.addActionListener(fileOpenActionListener);
         JMenuItem fileSave = new JMenuItem("Save");
         JMenuItem fileSaveAs = new JMenuItem("Save As");
+        SaveAsActionListener saveAsActionListener = new SaveAsActionListener(textArea);
+        fileSaveAs.addActionListener(saveAsActionListener);
+
         JMenuItem filePrint = new JMenuItem("Print");
         JMenuItem fileExit = new JMenuItem("Exit");
         file.add(fileNew);
@@ -43,7 +46,6 @@ public class Notepad {
         file.add(fileSaveAs);
         file.add(filePrint);
         file.add(fileExit);
-
 
         JMenuItem editCut = new JMenuItem("Cut");
         JMenuItem editCopy = new JMenuItem("Copy");
