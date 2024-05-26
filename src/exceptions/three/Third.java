@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class Third {
     public static void main(String[] args) {
-        try{
+        try {
             readFile("C:\\Users\\crazyman\\OneDrive\\Desktop\\doesntExist.txt");
-        }catch (FileNotFoundException exception){
-            System.out.println("no file");
+        } catch (FileNotFoundException exception) {
+            System.out.println("no file " + exception.getMessage());
         }
     }
 
