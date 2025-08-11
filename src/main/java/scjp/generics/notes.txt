@@ -1,0 +1,32 @@
+wildcard type
+type safe
+non-type safe (non-generic/pre-Java 5)
+typed and untyped code
+declaring a type safe collection
+generics takes care of both ends (the putting in and getting out) by enforcing the type of your collections.
+angle brackets
+The type in angle brackets is referred to as either the "parameterized type," "type parameter,"
+compiler warnings are NOT considered a compiler failure
+type erasure
+Think of generics as strictly a compile-time protection
+
+At runtime, ALL collection code—both legacy and new
+Java 5 code you write using generics—looks exactly like the pre-generic version of
+collections. None of your typing information exists at runtime. In other words, even
+though you WROTE List<Integer> myList = new ArrayList<Integer>();
+By the time the compiler is done with it, the JVM sees what it always saw before Java 5 and generics:
+List myList = new ArrayList();
+Think of generics as strictly a compile-time protection. The compiler uses generic
+type information (the <type> in the angle brackets) to make sure that your code
+doesn't put the wrong things into a collection, and that you do not assign what you
+get from a collection to the wrong reference type. But NONE of this protection
+exists at runtime.
+This is a little different from arrays, which give you BOTH compile-time
+protection and runtime protection.
+This is a little different from arrays, which give you BOTH compile-time
+protection and runtime protection. Why did they do generics this way? Why is there
+no type information at runtime? To support legacy code. At runtime, collections
+are collections just like the old days
+
+List<JButton> myList = new ArrayList<JButton>();
+List and ArrayList are the base type and JButton is the generic type
